@@ -870,23 +870,6 @@ document.getElementById("installBtn")?.addEventListener("click", async ()=>{
 });
 document.getElementById("installClose")?.addEventListener("click", ()=>document.getElementById("installBanner")?.classList.remove("show"));
 
-/* ================= PWA 启动与安装 ================= */
-if("serviceWorker" in navigator){
-  window.addEventListener("load", ()=>navigator.serviceWorker.register("/sw.js").catch(console.error));
-}
-let deferredInstallPrompt = null;
-window.addEventListener("beforeinstallprompt", (e)=>{
-  e.preventDefault(); deferredInstallPrompt=e;
-  document.getElementById("installBanner")?.classList.add("show");
-});
-document.getElementById("installBtn")?.addEventListener("click", async ()=>{
-  if(!deferredInstallPrompt){ showToast("iPhone 请点 Safari 的分享按钮 → 添加到主屏幕"); return; }
-  deferredInstallPrompt.prompt();
-  await deferredInstallPrompt.userChoice;
-  deferredInstallPrompt=null;
-  document.getElementById("installBanner")?.classList.remove("show");
-});
-document.getElementById("installClose")?.addEventListener("click", ()=>document.getElementById("installBanner")?.classList.remove("show"));
 
 /* ================= 启动 ================= */
 init();
