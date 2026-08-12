@@ -1,0 +1,12 @@
+{
+  "name": "EchoDesk · Upwork 英语闯关",
+  "short_name": "EchoDesk",
+  "description": "面向 Upwork / BI 数据分析工作的 AI 商业英语训练工具",
+  "lang": "zh-CN",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F5F7F6",
+  "theme_color": "#123544",
+  "orientation": "portrait"
+}
